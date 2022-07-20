@@ -1,0 +1,46 @@
+drop table if exists Users;
+drop table if exists Persons;
+drop table if exists Events;
+drop table if exists Authtokens;
+
+create table Users
+(
+	username varchar(255) not null PRIMARY KEY,
+	password varchar(255) not null,
+	email varchar(255) not null,
+	firstName varchar(255) not null,
+	lastName varchar(255) not null,
+	gender varchar(1) not null,
+	personID varchar(255) not null
+);
+
+create table Persons
+(
+	personID varchar(255) not null PRIMARY KEY,
+	associatedUsername varchar(255) not null,
+	firstName varchar(255) not null,
+	lastName varchar(255) not null,
+	gender varchar(1) not null,
+	fatherID varchar(255),
+	motherID varchar(255),
+	spouseID varchar(255)
+);
+
+create table Events
+(
+	eventID varchar(255) not null PRIMARY KEY,
+	associatedUsername varchar(255) not null,
+	personID varchar(255) not null,
+	latitude float not null,
+	longitude float not null,
+	country varchar(255) not null,
+	city varchar(255) not null,
+	eventType varchar(255) not null,
+	year int not null
+);
+
+create table Authtokens
+(
+	authtoken varchar(255) not null PRIMARY KEY,
+	username varchar(255) not null
+);
