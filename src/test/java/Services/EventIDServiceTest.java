@@ -27,7 +27,7 @@ class EventIDServiceTest {
                 35.9f, 140.1f, "Japan", "Ushiku",
                 "Biking_Around", 2016);
 
-        bestAuthtoken = new Authtoken("123test", "testusername");
+        bestAuthtoken = new Authtoken("123test", "Gale");
 
         db = new Database();
         db.openConnection();

@@ -28,7 +28,7 @@ class PersonIDServiceTest {
         aDao = new AuthtokenDAO(db.getConnection());
 
         bestPerson = new Person("1234", "condezzy", "s", "s", "s", "s", "s", "9384rh4");
-        bestAuthtoken = new Authtoken("123test", "testusername");
+        bestAuthtoken = new Authtoken("123test", "condezzy");
 
         pDao.clear();
         aDao.clear();
