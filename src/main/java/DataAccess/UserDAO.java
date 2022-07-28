@@ -8,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
-import java.util.UUID;
 
 /**
  * User database access object class to perform all operations pertaining to users in the database.

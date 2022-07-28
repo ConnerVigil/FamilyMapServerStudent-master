@@ -25,7 +25,6 @@ public class PersonHandler extends BaseHandler {
      */
     @Override
     public void handle(HttpExchange exchange) throws IOException {
-        boolean success = false;
 
         try {
             if (exchange.getRequestMethod().toLowerCase().equals("get")) {
@@ -48,7 +47,6 @@ public class PersonHandler extends BaseHandler {
                     Gson gson = new Gson();
                     gson.toJson(result, resultBody);
                     resultBody.close();
-                    success = true;
                 }
             }
         }
@@ -57,6 +55,5 @@ public class PersonHandler extends BaseHandler {
             exchange.getResponseBody().close();
             e.printStackTrace();
         }
-
     }
 }

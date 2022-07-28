@@ -3,7 +3,6 @@ package Handlers;
 import Result.EventIDResult;
 import Result.EventResult;
 import Services.EventIDService;
-import Services.EventService;
 import com.google.gson.Gson;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
