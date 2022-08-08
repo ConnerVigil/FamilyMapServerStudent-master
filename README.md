@@ -1,14 +1,10 @@
-# FamilyMapServerStudent
+Family Map Server (FMS)
 
-- Refer to the <b>How To Get Started</b> document on the <b>Family Map Server Program Assignment</b> for more detailed instructions and help with common issues. 
+This project focuses on designing, implementing, and testing the Family Map server. The server is a regular Java program. When it runs the server does not display an interactive user interface (i.e., it is "headless"). Rather than interacting with a user, it waits for Family Map clients to connect to it through the internet to authenticate users and retrieve user family history information. Although the server has no user interface, it may display diagnostic or informational messages in the console and/or in a log file. This is useful for debugging the server and monitoring its operation. Additionally, because we do not have real family history data for our users, part of the server’s functionality is to generate artificial family history data for each Family Map user.
 
-General Instructions:
-1.	Follow the instructions on github regarding how to clone this repository into a directory on your local machine.
-2.	Open IntelliJ.
-3.	Select File -> Open...
-4.	Navigate to the newly cloned repository and select it.
-5.	Allow IntelliJ a few minutes to download any dependencies and set up the project.
-6.	Once it is done loading, make sure the main function found in HelloWorld.java runs without errors. It is found inside the project in the ``src/main/java/HelloWorld.java`` directory. 
-7.	Select Help -> Edit Custom VM Options and add the following line to the end of the file: `-Deditable.java.test.console=true` This is necessary to run the test driver properly.
-8.	Select File -> Invalidate Caches / Restart.
-9.	Once IntelliJ finishes restarting, you should be good to go. Good luck!
+The purpose of this project is to learn about and gain experience with the following:
+
+Designing, implementing, and testing a large, multi-faceted program
+Relational database concepts and programming
+Creation of server programs that publish web APIs
+Automated unit and integration testing
