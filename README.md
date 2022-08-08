@@ -5,6 +5,9 @@ This project focuses on designing, implementing, and testing the Family Map serv
 The purpose of this project is to learn about and gain experience with the following:
 
 Designing, implementing, and testing a large, multi-faceted program
+
 Relational database concepts and programming
+
 Creation of server programs that publish web APIs
+
 Automated unit and integration testing
