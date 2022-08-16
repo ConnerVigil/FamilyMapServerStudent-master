@@ -12,6 +12,8 @@ Creation of server programs that publish web APIs
 
 Automated unit and integration testing
 
+#Screenshots of Android Client Application which uses the server
+
 LoginView:
 <img width="693" alt="LoginView" src="https://user-images.githubusercontent.com/73132308/184996484-3b361deb-e0fb-48c0-a32b-8f3230d6f713.png">
 
