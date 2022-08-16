@@ -1,6 +1,7 @@
 package DataAccess;
 
 import Model.Event;
+import Model.Person;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -125,6 +126,62 @@ public class EventDAO {
 
             if (listOfEvents.isEmpty()) {
                 throw new DataAccessException("There were no events in the database associated with the user: " + username);
+            }
+
+            return listOfEvents;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DataAccessException("Error encountered while finding a list of events in the database");
+        }
+    }
+
+    /**
+     * Deletes an event in the database by eventID.
+     *
+     * @param eventID the eventID
+     * @throws DataAccessException if an error occurs
+     */
+    public void deleteEvent(String eventID) throws DataAccessException {
+        if (find(eventID) == null) {
+            throw new DataAccessException("Could not delete event who doesn't exist in Events table.");
+        }
+        String sql = "DELETE FROM Events WHERE eventID = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, eventID);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DataAccessException("Error encountered while deleting an event from the Events table.");
+        }
+    }
+
+    /**
+     * Grabs all event objects for a particular person family tree and
+     * returns them as a list.
+     *
+     * @param personID used to find events in database
+     * @return A list of events from the person
+     */
+    public List<Event> findAllEventsForPerson(String personID) throws DataAccessException {
+        List<Event> listOfEvents = new ArrayList<>();
+        Event event;
+        ResultSet rs;
+        String sql = "SELECT * FROM Events WHERE personID = ?;";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, personID);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                event = new Event(rs.getString("eventID"), rs.getString("AssociatedUsername"),
+                        rs.getString("personID"), rs.getFloat("latitude"),
+                        rs.getFloat("longitude"), rs.getString("country"),
+                        rs.getString("city"), rs.getString("eventType"), rs.getInt("year"));
+
+                listOfEvents.add(event);
+            }
+
+            if (listOfEvents.isEmpty()) {
+                throw new DataAccessException("There were no events in the database associated with the personID: " + personID);
             }
 
             return listOfEvents;

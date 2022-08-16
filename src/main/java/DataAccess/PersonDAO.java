@@ -116,7 +116,7 @@ public class PersonDAO {
     }
 
     /**
-     * Grabs all event objects for a particular user's family tree and
+     * Grabs all person objects for a particular user's family tree and
      * returns them as a list.
      *
      * @param username username used to find user in database

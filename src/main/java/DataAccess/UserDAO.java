@@ -1,6 +1,5 @@
 package DataAccess;
 
-import Model.Authtoken;
 import Model.User;
 
 import java.sql.Connection;

@@ -8,6 +8,7 @@ import Model.Person;
 import Model.User;
 import Result.FillResult;
 
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -45,13 +46,19 @@ public class GenerateFamilyTree extends BaseService {
      * @param user user to generate tree for.
      * @param gender gender of the user
      * @param generations number of generations to generate
-     * @param db the databse to get the connection
+     * @param db the database to get the connection
      * @return the fill result to the handler
      */
     public FillResult generateTree(User user, String gender, int generations, Database db) throws DataAccessException {
         PersonDAO pDao = new PersonDAO(db.getConnection());
         EventDAO eDao = new EventDAO(db.getConnection());
         Person userPerson = generateTreeHelper(user.getUsername(), gender, generations, db);
+
+        pDao.deletePerson(userPerson.getPersonID()); // Delete the last person that was made so that there isn't duplicate person for the current user
+        List<Event> events = eDao.findAllEventsForPerson(userPerson.getPersonID()); // and their events
+        for (Event e : events) {
+            eDao.deleteEvent(e.getEventID());
+        }
 
         userPerson.setPersonID(user.getPersonID());
         userPerson.setAssociatedUsername(user.getUsername());
